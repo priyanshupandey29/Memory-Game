@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  background-image: url("/img/342084.jpg");
+}
+.container {
+  width: 640px;
+  height: 640px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  perspective: 1000px;
+  background-color:transparent;
+}
+.cards {
+  background-size: cover;
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.cards:active {
+  transform: scale(0.97);
+  transition: transform 0.1s;
+}
+
+.cards.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  border-radius: 5px;
+  position: absolute;
+  border: 1px solid white;
+  backface-visibility: hidden;
+}
+
+.front {
+  box-shadow: 0 0 50px blue;
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
